@@ -1,0 +1,158 @@
+tutorial02.c:67:5: warning: 'av_register_all' is deprecated [-Wdeprecated-declarations]
+    av_register_all();
+    ^
+/usr/local/include/libavformat/avformat.h:2049:1: note: 'av_register_all' has been explicitly marked deprecated here
+attribute_deprecated
+^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:88:37: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+        if (pFormatCtx->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
+                                    ^
+/usr/local/include/libavformat/avformat.h:884:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:96:55: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+    pCodecCtxOrig = pFormatCtx->streams[videoStream]->codec;
+                                                      ^
+/usr/local/include/libavformat/avformat.h:884:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:106:9: warning: 'avcodec_copy_context' is deprecated [-Wdeprecated-declarations]
+    if (avcodec_copy_context(pCodecCtx, pCodecCtxOrig) != 0) {
+        ^
+/usr/local/include/libavcodec/avcodec.h:4234:1: note: 'avcodec_copy_context' has been explicitly marked deprecated here
+attribute_deprecated
+^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:177:13: warning: 'avcodec_decode_video2' is deprecated [-Wdeprecated-declarations]
+            avcodec_decode_video2(pCodecCtx, pFrame, &frameFinished, &packet);
+            ^
+/usr/local/include/libavcodec/avcodec.h:4827:1: note: 'avcodec_decode_video2' has been explicitly marked deprecated here
+attribute_deprecated
+^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:182:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
+                pict.data[0] = yPlane;
+                     ^
+/usr/local/include/libavcodec/avcodec.h:3867:5: note: 'data' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:183:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
+                pict.data[1] = uPlane;
+                     ^
+/usr/local/include/libavcodec/avcodec.h:3867:5: note: 'data' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:184:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
+                pict.data[2] = vPlane;
+                     ^
+/usr/local/include/libavcodec/avcodec.h:3867:5: note: 'data' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:185:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
+                pict.linesize[0] = pCodecCtx->width;
+                     ^
+/usr/local/include/libavcodec/avcodec.h:3869:5: note: 'linesize' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:186:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
+                pict.linesize[1] = uvPitch;
+                     ^
+/usr/local/include/libavcodec/avcodec.h:3869:5: note: 'linesize' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:187:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
+                pict.linesize[2] = uvPitch;
+                     ^
+/usr/local/include/libavcodec/avcodec.h:3869:5: note: 'linesize' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:191:70: warning: 'data' is deprecated [-Wdeprecated-declarations]
+                        pFrame->linesize, 0, pCodecCtx->height, pict.data,
+                                                                     ^
+/usr/local/include/libavcodec/avcodec.h:3867:5: note: 'data' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:192:30: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
+                        pict.linesize);
+                             ^
+/usr/local/include/libavcodec/avcodec.h:3869:5: note: 'linesize' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+tutorial02.c:213:9: warning: 'av_free_packet' is deprecated [-Wdeprecated-declarations]
+        av_free_packet(&packet);
+        ^
+/usr/local/include/libavcodec/avcodec.h:4472:1: note: 'av_free_packet' has been explicitly marked deprecated here
+attribute_deprecated
+^
+/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+14 warnings generated.
+Undefined symbols for architecture x86_64:
+  "_SDL_CreateRenderer", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_CreateTexture", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_CreateWindow", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_DestroyRenderer", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_DestroyTexture", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_DestroyWindow", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_GetError", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_Init", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_PollEvent", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_Quit", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_RenderClear", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_RenderCopy", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_RenderPresent", referenced from:
+      _main in tutorial02-fed152.o
+  "_SDL_UpdateYUVTexture", referenced from:
+      _main in tutorial02-fed152.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
