@@ -2,7 +2,7 @@
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
-
+#include <libavdevice/avdevice.h> 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_thread.h>
 
@@ -17,7 +17,6 @@
  
 
 int main(int argc, char *argv[]) {
-    AVFormatContext *pFormatCtx = NULL;
     int videoStream;
     unsigned i;
     AVCodecContext *pCodecCtxOrig = NULL;
@@ -35,18 +34,26 @@ int main(int argc, char *argv[]) {
     size_t yPlaneSz, uvPlaneSz;
     int uvPitch;
 
-    if (argc < 2) {
-        fprintf(stderr, "Usage: test <file>\n");
-        exit(1);
-    }
 
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER)) {
         fprintf(stderr, "Could not initialize SDL - %s\n", SDL_GetError());
         exit(1);
     }
 
+    avdevice_register_all();  
+
+    AVFormatContext *pFormatCtx = avformat_alloc_context();
+
+
+    AVInputFormat *ifmt=av_find_input_format("avfoundation"); 
+
+    AVDictionary *inOptions = NULL;
+    av_dict_set(&inOptions, "video_size", "1280x720", 0);  
+//    av_dict_set(&inOptions, "pixel_format", "uyvy422", 0); 
+
+
     // Open video file
-    if (avformat_open_input(&pFormatCtx, argv[1], NULL, NULL) != 0)
+    if (avformat_open_input(&pFormatCtx, "0", ifmt, &inOptions) != 0)
         return -1; // Couldn't open file
 
     // Retrieve stream information
@@ -153,8 +160,9 @@ int main(int argc, char *argv[]) {
             if (frameFinished) {
 
                 SDL_UpdateYUVTexture(texture, NULL, pFrame->data[0], pFrame->linesize[0],
-                                                       pFrame->data[1], pFrame->linesize[1],
-                                                       pFrame->data[2], pFrame->linesize[2]);
+                                                       pFrame->data[0], pFrame->linesize[0],
+                                                       pFrame->data[0], pFrame->linesize[0]);
+               
                 SDL_RenderClear(renderer);
                 SDL_RenderCopy(renderer, texture, NULL, NULL);
                 SDL_RenderPresent(renderer);

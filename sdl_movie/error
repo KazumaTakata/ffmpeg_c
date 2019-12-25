@@ -1,40 +1,4 @@
-tutorial02.c:83:37: warning: 'codec' is deprecated [-Wdeprecated-declarations]
-        if (pFormatCtx->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
-                                    ^
-/usr/local/include/libavformat/avformat.h:884:5: note: 'codec' has been explicitly marked deprecated here
-    attribute_deprecated
-    ^
-/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
-#    define attribute_deprecated __attribute__((deprecated))
-                                                ^
-tutorial02.c:91:55: warning: 'codec' is deprecated [-Wdeprecated-declarations]
-    pCodecCtxOrig = pFormatCtx->streams[videoStream]->codec;
-                                                      ^
-/usr/local/include/libavformat/avformat.h:884:5: note: 'codec' has been explicitly marked deprecated here
-    attribute_deprecated
-    ^
-/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
-#    define attribute_deprecated __attribute__((deprecated))
-                                                ^
-tutorial02.c:101:9: warning: 'avcodec_copy_context' is deprecated [-Wdeprecated-declarations]
-    if (avcodec_copy_context(pCodecCtx, pCodecCtxOrig) != 0) {
-        ^
-/usr/local/include/libavcodec/avcodec.h:4234:1: note: 'avcodec_copy_context' has been explicitly marked deprecated here
-attribute_deprecated
-^
-/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
-#    define attribute_deprecated __attribute__((deprecated))
-                                                ^
-tutorial02.c:172:13: warning: 'avcodec_decode_video2' is deprecated [-Wdeprecated-declarations]
-            avcodec_decode_video2(pCodecCtx, pFrame, &frameFinished, &packet);
-            ^
-/usr/local/include/libavcodec/avcodec.h:4827:1: note: 'avcodec_decode_video2' has been explicitly marked deprecated here
-attribute_deprecated
-^
-/usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
-#    define attribute_deprecated __attribute__((deprecated))
-                                                ^
-tutorial02.c:177:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:179:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
                 pict.data[0] = yPlane;
                      ^
 /usr/local/include/libavcodec/avcodec.h:3867:5: note: 'data' has been explicitly marked deprecated here
@@ -43,7 +7,7 @@ tutorial02.c:177:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-tutorial02.c:178:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:180:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
                 pict.data[1] = uPlane;
                      ^
 /usr/local/include/libavcodec/avcodec.h:3867:5: note: 'data' has been explicitly marked deprecated here
@@ -52,7 +16,7 @@ tutorial02.c:178:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-tutorial02.c:179:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:181:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
                 pict.data[2] = vPlane;
                      ^
 /usr/local/include/libavcodec/avcodec.h:3867:5: note: 'data' has been explicitly marked deprecated here
@@ -61,7 +25,7 @@ tutorial02.c:179:22: warning: 'data' is deprecated [-Wdeprecated-declarations]
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-tutorial02.c:180:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:182:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
                 pict.linesize[0] = pCodecCtx->width;
                      ^
 /usr/local/include/libavcodec/avcodec.h:3869:5: note: 'linesize' has been explicitly marked deprecated here
@@ -70,7 +34,7 @@ tutorial02.c:180:22: warning: 'linesize' is deprecated [-Wdeprecated-declaration
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-tutorial02.c:181:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:183:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
                 pict.linesize[1] = uvPitch;
                      ^
 /usr/local/include/libavcodec/avcodec.h:3869:5: note: 'linesize' has been explicitly marked deprecated here
@@ -79,7 +43,7 @@ tutorial02.c:181:22: warning: 'linesize' is deprecated [-Wdeprecated-declaration
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-tutorial02.c:182:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:184:22: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
                 pict.linesize[2] = uvPitch;
                      ^
 /usr/local/include/libavcodec/avcodec.h:3869:5: note: 'linesize' has been explicitly marked deprecated here
@@ -88,7 +52,7 @@ tutorial02.c:182:22: warning: 'linesize' is deprecated [-Wdeprecated-declaration
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-tutorial02.c:186:70: warning: 'data' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:188:70: warning: 'data' is deprecated [-Wdeprecated-declarations]
                         pFrame->linesize, 0, pCodecCtx->height, pict.data,
                                                                      ^
 /usr/local/include/libavcodec/avcodec.h:3867:5: note: 'data' has been explicitly marked deprecated here
@@ -97,7 +61,7 @@ tutorial02.c:186:70: warning: 'data' is deprecated [-Wdeprecated-declarations]
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-tutorial02.c:187:30: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:189:30: warning: 'linesize' is deprecated [-Wdeprecated-declarations]
                         pict.linesize);
                              ^
 /usr/local/include/libavcodec/avcodec.h:3869:5: note: 'linesize' has been explicitly marked deprecated here
@@ -106,7 +70,10 @@ tutorial02.c:187:30: warning: 'linesize' is deprecated [-Wdeprecated-declaration
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-tutorial02.c:208:9: warning: 'av_free_packet' is deprecated [-Wdeprecated-declarations]
+tutorial02.c:191:39: error: use of undeclared identifier 'tex'
+                SDL_UpdateYUVTexture(*tex, NULL, pFrame->data[0], pFrame->linesize[0],
+                                      ^
+tutorial02.c:214:9: warning: 'av_free_packet' is deprecated [-Wdeprecated-declarations]
         av_free_packet(&packet);
         ^
 /usr/local/include/libavcodec/avcodec.h:4472:1: note: 'av_free_packet' has been explicitly marked deprecated here
@@ -115,4 +82,4 @@ attribute_deprecated
 /usr/local/include/libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
 #    define attribute_deprecated __attribute__((deprecated))
                                                 ^
-13 warnings generated.
+9 warnings and 1 error generated.
