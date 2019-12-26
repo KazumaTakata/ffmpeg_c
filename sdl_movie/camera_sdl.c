@@ -2,6 +2,7 @@
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
+#include <libavutil/imgutils.h>
 #include <libavdevice/avdevice.h> 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_thread.h>
@@ -23,6 +24,8 @@ int main(int argc, char *argv[]) {
     AVCodecContext *pCodecCtx = NULL;
     AVCodec *pCodec = NULL;
     AVFrame *pFrame = NULL;
+    AVFrame *pFrameYUV = NULL;
+
     AVPacket *packet =  av_packet_alloc();
     int frameFinished;
     struct SwsContext *sws_ctx = NULL;
@@ -95,6 +98,20 @@ int main(int argc, char *argv[]) {
 
     // Allocate video frame
     pFrame = av_frame_alloc();
+    pFrameYUV = av_frame_alloc();
+
+    int size = av_image_get_buffer_size(AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height, 1);
+    unsigned char * out_buffer = (unsigned char *) av_malloc(size);
+    av_image_fill_arrays(pFrameYUV->data, pFrameYUV->linesize, out_buffer, AV_PIX_FMT_YUV420P, pCodecCtx->width,
+                         pCodecCtx->height, 1);
+
+
+
+
+    struct SwsContext * img_convert_ctx = sws_getContext(pCodecCtx->width, pCodecCtx->height, pCodecCtx->pix_fmt, pCodecCtx->width, pCodecCtx->height, AV_PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL);
+
+
+
 
     // Make a screen to put our video
     screen = SDL_CreateWindow(
@@ -156,13 +173,19 @@ int main(int argc, char *argv[]) {
             avcodec_send_packet(pCodecCtx, packet);
             avcodec_receive_frame(pCodecCtx, pFrame);
             frameFinished = 1;
-
             if (frameFinished) {
-
-                SDL_UpdateYUVTexture(texture, NULL, pFrame->data[0], pFrame->linesize[0],
-                                                       pFrame->data[0], pFrame->linesize[0],
-                                                       pFrame->data[0], pFrame->linesize[0]);
                
+                sws_scale(img_convert_ctx, (const uint8_t *const *) pFrame->data, pFrame->linesize, 0,
+                      pCodecCtx->height, pFrameYUV->data,
+                      pFrameYUV->linesize); 
+       /*         SDL_UpdateYUVTexture(texture, NULL, pFrame->data[0], pFrame->linesize[0],*/
+                                                       /*pFrame->data[0], pFrame->linesize[0],*/
+                                                       /*pFrame->data[0], pFrame->linesize[0]);*/
+                SDL_UpdateYUVTexture(texture, NULL,
+                                 pFrameYUV->data[0], pFrameYUV->linesize[0],
+                                 pFrameYUV->data[1], pFrameYUV->linesize[1],
+                                 pFrameYUV->data[2], pFrameYUV->linesize[2]);
+
                 SDL_RenderClear(renderer);
                 SDL_RenderCopy(renderer, texture, NULL, NULL);
                 SDL_RenderPresent(renderer);
